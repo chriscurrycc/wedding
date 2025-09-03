@@ -45,6 +45,24 @@
     color: white;
 }
 
+.headerAudio {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+
+.headerAudio i {
+    font-size: inherit;
+    color: inherit;
+}
+
+
 .section-des {
 
     text-align: center;
