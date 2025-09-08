@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:image" content="https://webp.chriscurry.cc/og-image.JPG" />
+    <meta
+      property="og:image"
+      content="https://webp.chriscurry.cc/og-image.JPG"
+    />
     <meta property="og:image:width" content="1234" />
     <meta property="og:image:height" content="1149" />
     <meta property="og:image:alt" content="Wedding Liu Zhining & Tian Zhi" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://webp.chriscurry.cc/og-image.JPG" />
+    <meta
+      name="twitter:image"
+      content="https://webp.chriscurry.cc/og-image.JPG"
+    />
     <meta name="twitter:image:alt" content="Wedding Liu Zhining & Tian Zhi" />
 
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
@@ -919,7 +925,7 @@
                 <i class="ri-gift-2-fill"> </i>
               </a>
 
-              <a href="https://surl.amap.com/2iy94v7G3M6" target="_blank">
+              <a href="javascript:;" onclick="showMapMenu()">
                 <i class="ri-map-2-line"> </i>
               </a>
             </div>
@@ -2421,5 +2427,186 @@
       async
       data-wp-strategy="async"
     ></script>
+
+    <!-- Map Apps Bottom Menu -->
+    <div id="mapMenu" class="map-menu-overlay" style="display: none">
+      <div class="map-menu-content">
+        <div class="map-menu-header">
+          <h3>选择地图</h3>
+          <button class="map-menu-close" onclick="hideMapMenu()">
+            &times;
+          </button>
+        </div>
+        <div class="map-menu-apps">
+          <a
+            href="https://surl.amap.com/2iy94v7G3M6"
+            target="_blank"
+            class="map-app-item"
+          >
+            高德地图
+          </a>
+          <a href="https://j.map.baidu.com/b2/Px5k" class="map-app-item">
+            百度地图
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .map-menu-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: flex;
+        align-items: flex-end;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .map-menu-content {
+        background: white;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        padding: 20px;
+        transform: translateY(0);
+        animation: slideUp 0.3s ease;
+      }
+
+      .map-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+      }
+
+      .map-menu-header h3 {
+        margin: 0;
+        color: #333;
+        font-size: 18px;
+      }
+
+      .map-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #666;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .map-menu-apps {
+        display: block;
+      }
+
+      .map-app-item {
+        display: block;
+        padding: 16px 20px;
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        border-bottom: 1px solid #e9ecef;
+        transition: background-color 0.2s ease;
+      }
+
+      .map-app-item:last-child {
+        border-bottom: none;
+      }
+
+      .map-app-item:hover {
+        background-color: #f8f9fa;
+      }
+
+      .map-app-item:active {
+        background-color: #e9ecef;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .map-menu-overlay.hiding {
+        animation: fadeOut 0.3s ease;
+      }
+
+      .map-menu-overlay.hiding .map-menu-content {
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(100%);
+        }
+      }
+    </style>
+
+    <script>
+      function showMapMenu() {
+        document.getElementById("mapMenu").style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+
+      function hideMapMenu() {
+        const menu = document.getElementById("mapMenu");
+        menu.classList.add("hiding");
+        setTimeout(() => {
+          menu.style.display = "none";
+          menu.classList.remove("hiding");
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      // Close menu when clicking on overlay
+      document.addEventListener("click", function (e) {
+        const menu = document.getElementById("mapMenu");
+        if (e.target === menu) {
+          hideMapMenu();
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const menu = document.getElementById("mapMenu");
+          if (menu.style.display === "flex") {
+            hideMapMenu();
+          }
+        }
+      });
+    </script>
   </body>
 </html>
