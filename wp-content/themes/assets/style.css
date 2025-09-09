@@ -776,6 +776,22 @@ main {
   padding: 12px 0;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
+  position: relative;
+}
+
+.banner-invitation {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.banner-invitation .invitee-name {
+  font-family: "KaiTi", "楷体", "STKaiti", "华文楷体", cursive;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0 5px;
 }
 
 .group-date {

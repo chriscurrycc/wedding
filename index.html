@@ -4,7 +4,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="干饭, 速来" />
+    <meta name="description" content="诚邀: 干饭, 速来" id="meta-description" />
+
+    <script>
+      // Update meta description and banner invitation dynamically based on invitee query parameter
+      (function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const invitee = urlParams.get("invitee");
+        if (invitee) {
+          const invitationText = `诚邀${invitee}: 干饭, 速来`;
+          const invitationHTML = `诚邀<span class="invitee-name">${invitee}</span>: 干饭, 速来`;
+
+          // Update meta description
+          const metaDescription = document.getElementById("meta-description");
+          if (metaDescription) {
+            metaDescription.setAttribute("content", invitationText);
+          }
+
+          // Update banner invitation text when DOM is loaded
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", function () {
+              const bannerInvitation =
+                document.getElementById("banner-invitation");
+              if (bannerInvitation) {
+                bannerInvitation.innerHTML = invitationHTML;
+              }
+            });
+          } else {
+            const bannerInvitation =
+              document.getElementById("banner-invitation");
+            if (bannerInvitation) {
+              bannerInvitation.innerHTML = invitationHTML;
+            }
+          }
+        }
+      })();
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta
@@ -896,6 +931,10 @@
             </div>
 
             <div class="banner-date">
+              <div class="banner-invitation" id="banner-invitation">
+                诚邀: 干饭, 速来
+              </div>
+
               <div class="group-date">
                 <span class="day_name"> 周五 </span>
 
