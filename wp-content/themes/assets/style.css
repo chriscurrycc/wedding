@@ -6,6 +6,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "XingKai";
+  src: url("/wp-content/themes/font/QingNiaoHuaGuangXingKai-2.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --max-width: 1024px;
   /* color */
@@ -788,7 +794,7 @@ main {
 }
 
 .banner-invitation .invitee-name {
-  font-family: "KaiTi", "楷体", "STKaiti", "华文楷体", cursive;
+  font-family: "XingKai", "KaiTi", "楷体", "STKaiti", "华文楷体", cursive;
   font-weight: bold;
   font-size: 24px;
   margin: 0 5px;
