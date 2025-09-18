@@ -8,7 +8,8 @@
 
 @font-face {
   font-family: "XingKai";
-  src: url("/wp-content/themes/font/QingNiaoHuaGuangXingKai-2.ttf") format("truetype");
+  src: url("/wp-content/themes/font/QingNiaoHuaGuangXingKai-2.ttf")
+    format("truetype");
   font-display: swap;
 }
 
@@ -44,6 +45,7 @@
   --primary-font: "Quicksand", sans-serif;
   --title-font: "Noto Serif Display", serif;
   --chinese-font: "Zihun", serif;
+  --font-cn: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 
   /* section margin and padding */
   --section-margin: 80px;
@@ -1253,6 +1255,7 @@ main {
 }
 
 .thankyou-des {
+  font-family: initial;
   font-size: 20px;
   text-align: center;
 }
@@ -1300,6 +1303,10 @@ main {
 
 #toTop button:hover i {
   transform: translateY(-2px);
+}
+
+.font-cn {
+  font-family: var(--font-cn);
 }
 
 /* END THANK YOU */
