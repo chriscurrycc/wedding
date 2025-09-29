@@ -933,6 +933,11 @@ main {
   margin-bottom: 40px;
 }
 
+.timeline-des {
+  font-family: var(--font-cn);
+  font-size: 14px;
+}
+
 .timeline-list {
   position: relative;
   display: grid;
